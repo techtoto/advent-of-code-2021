@@ -20,5 +20,5 @@ java {
 }
 
 application {
-    mainClass.set("main.java.io.github.techtoto.aoc2021.FirstTest")
+    mainClass.set("main.java.io.github.techtoto.aoc2021.Solutions")
 }
