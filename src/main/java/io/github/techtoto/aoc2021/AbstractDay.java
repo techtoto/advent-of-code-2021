@@ -3,18 +3,31 @@ package io.github.techtoto.aoc2021;
 public abstract class AbstractDay {
     public int[] solutions = new int[2];
     public StringBuilder[] outputs = new StringBuilder[2];
+    boolean[] printOutput;
 
-    public AbstractDay() {
+    public AbstractDay(boolean[] printOutput) {
         outputs[0] = new StringBuilder();
         outputs[1] = new StringBuilder();
+        this.printOutput = printOutput;
     }
 
     public int getSolution(int i) {
         return solutions[i];
     }
 
+    public void setSolution(int solutionNr, int solution) {
+        solutions[solutionNr] = solution;
+    }
+
     public String getOutput(int i) {
         return outputs[i].toString();
     }
 
+    public void appendOutput(int solutionNr, String text) {
+        outputs[solutionNr].append(text);
+    }
+
+    public boolean getPrintOutput(int solutionNr) {
+        return printOutput[solutionNr];
+    }
 }

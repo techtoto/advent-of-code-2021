@@ -13,37 +13,40 @@ import java.util.ArrayList;
 public class Day01 extends AbstractDay {
     ArrayList<Integer> input = new ArrayList<>();
 
-    public Day01(String inputFile) {
-        super();
-        for (String line : FileInteraction.readFileToArrayList(inputFile))
+    public Day01(String inputFile, boolean printOutput1, boolean printOutput2) {
+        super(new boolean[]{printOutput1, printOutput2});
+        for (String line : FileInteraction.readFileToArrayList(inputFile)) {
             input.add(Integer.parseInt(line));
+        }
         sonarSweep(input, 0);
         sonarSweep(sumThree(input) ,1);
     }
 
-    public ArrayList<Integer> sumThree(ArrayList<Integer> input) {
+    private ArrayList<Integer> sumThree(ArrayList<Integer> input) {
         ArrayList<Integer> newInput = new ArrayList<>();
-        for (int i = 1; i < input.size() - 1; i++)
+        for (int i = 1; i < input.size() - 1; i++) {
             newInput.add(input.get(i - 1) + input.get(i) + input.get(i + 1));
+        }
         return newInput;
     }
 
-    public void sonarSweep(ArrayList<Integer> input, int questNumber) {
+    private void sonarSweep(ArrayList<Integer> input, int questNumber) {
         int previousDepth = 0;
         int depthIncreases = 0;
         for (int currentDepth : input) {
-            outputs[questNumber].append(currentDepth);
-            if (previousDepth == 0)
-                outputs[questNumber].append(" (N/A - no previous measurement)\n");
-            else if (currentDepth > previousDepth) {
-                outputs[questNumber].append(" (increased)\n");
-                depthIncreases++;
+            appendOutput(questNumber, Integer.toString(currentDepth));
+            if (previousDepth == 0) {
+                appendOutput(questNumber, " (N/A - no previous measurement)\n");
             }
-            else
-                outputs[questNumber].append(" (decreased)\n");
+            else if (currentDepth > previousDepth) {
+                appendOutput(questNumber, " (increased)\n");
+                depthIncreases++;
+            } else {
+                appendOutput(questNumber, " (decreased)\n");
+            }
             previousDepth = currentDepth;
         }
-        solutions[questNumber] = depthIncreases;
+        setSolution(questNumber, depthIncreases);
     }
 
 }
