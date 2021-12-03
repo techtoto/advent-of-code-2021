@@ -3,15 +3,14 @@ package io.github.techtoto.aoc2021;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.util.List;
 
 public class FileInteraction {
-    public static ArrayList<String> readFileToArrayList(String inFile) {
-        ArrayList<String> lines;
+    public static List<String> readFileToList(String inFile) {
+        List<String> lines = null;
         try {
-            lines = (ArrayList<String>) Files.readAllLines(Paths.get("src/main/java/io/github/techtoto/aoc2021/" + inFile));
+            lines = Files.readAllLines(Paths.get("src/main/java/io/github/techtoto/aoc2021/" + inFile));
         } catch (IOException e) {
-            lines = new ArrayList<>();
             System.out.println("File could not be found!");
             e.printStackTrace();
         }

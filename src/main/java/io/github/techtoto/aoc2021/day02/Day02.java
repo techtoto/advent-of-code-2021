@@ -3,18 +3,22 @@ package io.github.techtoto.aoc2021.day02;
 import io.github.techtoto.aoc2021.AbstractDay;
 import io.github.techtoto.aoc2021.FileInteraction;
 
-import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Advent of Code 2021 - Day 02: Dive!
+ * @author Tobias Reichenbach
+ */
 public class Day02 extends AbstractDay {
-    ArrayList<String> input;
+    List<String> input;
 
     public Day02(String inputFile, boolean printOutput1, boolean printOutput2) {
         super(new boolean[]{printOutput1, printOutput2});
-        input = FileInteraction.readFileToArrayList(inputFile);
+        input = FileInteraction.readFileToList(inputFile);
         dive(input);
     }
 
-    private void dive(ArrayList<String> input) {
+    private void dive(List<String> input) {
         int x = 0;
         int y = 0;
         int newY = 0;

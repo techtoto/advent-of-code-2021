@@ -8,14 +8,13 @@ import java.util.ArrayList;
 /**
  * Advent of Code 2021 - Day 01: Sonar Sweep
  * @author Tobias Reichenbach
- * @version 2021-12-01
  */
 public class Day01 extends AbstractDay {
     ArrayList<Integer> input = new ArrayList<>();
 
     public Day01(String inputFile, boolean printOutput1, boolean printOutput2) {
         super(new boolean[]{printOutput1, printOutput2});
-        for (String line : FileInteraction.readFileToArrayList(inputFile)) {
+        for (String line : FileInteraction.readFileToList(inputFile)) {
             input.add(Integer.parseInt(line));
         }
         sonarSweep(input, 0);
