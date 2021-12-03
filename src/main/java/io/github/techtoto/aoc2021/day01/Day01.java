@@ -14,9 +14,7 @@ public class Day01 extends AbstractDay {
 
     public Day01(String inputFile, boolean printOutput1, boolean printOutput2) {
         super(new boolean[]{printOutput1, printOutput2});
-        for (String line : FileInteraction.readFileToList(inputFile)) {
-            input.add(Integer.parseInt(line));
-        }
+        FileInteraction.readFileToList(inputFile).forEach(line -> input.add(Integer.parseInt(line)));
         sonarSweep(input, 0);
         sonarSweep(sumThree(input) ,1);
     }

@@ -61,9 +61,11 @@ public class Day03 extends AbstractDay {
             long oneOccurrences = countOccurrencesPerCol(tempInput, currentBitPos, '1');
             int finalCurrentBitPos = currentBitPos;
 
-            if ((oneOccurrences >= tempInput.size() / 2.0 && type.equals("oxygen")) || (oneOccurrences < tempInput.size() / 2.0 && type.equals("co2"))) {
+            if ((oneOccurrences >= tempInput.size() / 2.0 && type.equals("oxygen")) ||
+                    (oneOccurrences < tempInput.size() / 2.0 && type.equals("co2"))) {
                 tempInput.removeIf(n -> (n.charAt(finalCurrentBitPos) == '0'));
-            } else if ((oneOccurrences < tempInput.size() / 2.0 && type.equals("oxygen")) || (oneOccurrences >= tempInput.size() / 2.0 && type.equals("co2"))) {
+            } else if ((oneOccurrences < tempInput.size() / 2.0 && type.equals("oxygen")) ||
+                    (oneOccurrences >= tempInput.size() / 2.0 && type.equals("co2"))) {
                 tempInput.removeIf(n -> (n.charAt(finalCurrentBitPos) == '1'));
             }
 
@@ -76,9 +78,7 @@ public class Day03 extends AbstractDay {
     private long countOccurrencesPerCol(List<String> listInRows, int colNr, char c) {
         StringBuilder col = new StringBuilder();
 
-        for (String row : listInRows) {
-            col.append(row.charAt(colNr));
-        }
+        listInRows.forEach(row -> col.append(row.charAt(colNr)));
 
         return col.chars().filter(ch -> ch == c).count();
     }
