@@ -6,7 +6,11 @@ import io.github.techtoto.aoc2021.FileInteraction;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Advent of Code 2021 - Day 04: Giant Squid
+ *
+ * @author Tobias Reichenbach
+ */
 public class Day04 extends AbstractDay {
 
     public Day04(String inputFile, boolean printOutput1, boolean printOutput2) {
