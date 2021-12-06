@@ -1,7 +1,7 @@
 package io.github.techtoto.aoc2021;
 
 public abstract class AbstractDay {
-    public int[] solutions = new int[2];
+    public long[] solutions = new long[2];
     public StringBuilder[] outputs = new StringBuilder[2];
     boolean[] printOutput;
 
@@ -11,11 +11,11 @@ public abstract class AbstractDay {
         this.printOutput = printOutput;
     }
 
-    public int getSolution(int i) {
+    public long getSolution(int i) {
         return solutions[i];
     }
 
-    public void setSolution(int solutionNr, int solution) {
+    public void setSolution(int solutionNr, long solution) {
         solutions[solutionNr] = solution;
     }
 
